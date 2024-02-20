@@ -1,5 +1,64 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        UserInput input = new UserInput();
+        int num1 = input.promptInt("Enter an integer.");
+        System.out.println("Twice your number is " + num1 * 2);
+
+        double num2 = input.promptDouble("Enter a double.");
+        System.out.println("Twice your number is " + num2 * 2);
+
+        String string1 = input.promptString("Enter a string.");
+        System.out.println("Your string is" + string1);
+    }
+}
+
+class UserInput {
+    Scanner scanner = new Scanner(System.in);
+
+    public int promptInt(String message) {
+        System.out.println(message);
+        String userInput = scanner.nextLine();
+
+        int userInt = 0;
+        boolean isInt = false;
+        while (!isInt) {
+            try {
+                userInt = Integer.parseInt(userInput);
+                isInt = true;
+            } catch (NumberFormatException e) {
+                System.out.println(userInput + " is not a valid integer. " + message);
+                userInput = scanner.nextLine();
+            } finally {
+                System.out.println("This line is always executed.");
+            }
+        }
+
+        return userInt;
+    }
+
+    public double promptDouble(String message) {
+        System.out.println(message);
+        String userInput = scanner.nextLine();
+
+        double userDouble = 0;
+        boolean isDouble = false;
+        while (!isDouble) {
+            try {
+                userDouble = Double.parseDouble(userInput);
+                isDouble = true;
+            } catch (NumberFormatException e) {
+                System.out.println(userInput + " is not a valid integer. " + message);
+                userInput = scanner.nextLine();
+            } finally {
+                System.out.println("This line is always executed.");
+            }
+        }
+        return userDouble;
+    }
+
+    public String promptString(String message){
+
     }
 }
