@@ -1,3 +1,5 @@
+// Gracie Hackworth, ALC, February 24th
+
 import java.util.Scanner;
 
 public class Main {
@@ -14,9 +16,11 @@ public class Main {
     }
 }
 
+//collects user input
 class UserInput {
     Scanner scanner = new Scanner(System.in);
 
+// // turns output from userInput as a string, then checks if it's a integer
     public int promptInt(String message) {
         System.out.println(message);
         String userInput = scanner.nextLine();
@@ -38,6 +42,7 @@ class UserInput {
         return userInt;
     }
 
+// turns output from userInput as a string, then checks if it's a double
     public double promptDouble(String message) {
         System.out.println(message);
         String userInput = scanner.nextLine();
@@ -58,6 +63,8 @@ class UserInput {
         return userDouble;
     }
 
+//// turns output from userInput as a string, then checks if it's a double, if it's a double it's not a string
+    //repeats process until it is a string
     public String promptString(String message) {
         System.out.println(message);
         String userInput = scanner.nextLine();
