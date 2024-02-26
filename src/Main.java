@@ -10,7 +10,7 @@ public class Main {
         System.out.println("Twice your number is " + num2 * 2);
 
         String string1 = input.promptString("Enter a string.");
-        System.out.println("Your string is" + string1);
+        System.out.println("Your string is " + string1);
     }
 }
 
@@ -58,7 +58,20 @@ class UserInput {
         return userDouble;
     }
 
-    public String promptString(String message){
+    public String promptString(String message) {
+        System.out.println(message);
+        String userInput = scanner.nextLine();
 
+        while (true) {
+            try {
+                Double.parseDouble(userInput);
+                System.out.println(userInput + " is not a valid string. " + message);
+                userInput = scanner.nextLine();
+            } catch (NumberFormatException e) {
+                return userInput;
+            } finally {
+                System.out.println("This line is always executed.");
+            }
+        }
     }
 }
